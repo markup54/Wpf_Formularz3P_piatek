@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Formularz3P_piatek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Obliczenia kwadratu" Height="450" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock
+            Margin="20"
+            Foreground ="CadetBlue"
+            
+            >
+            Podaj długość boku kwadratu
+        </TextBlock>
+        <TextBlock
+            Grid.Row="1"
+            Margin="20"
+            Text="Pole"/>
+        <TextBlock
+            Grid.Row="2"
+            Margin="20"
+            Text="Obwód"/>
+        <TextBox
+            Margin="20"
+            Grid.Column="1"
+            x:Name="bok_txt"/>
+        <Label
+            x:Name="pole_label"
+            Margin="20"
+            Grid.Column="1"
+            Grid.Row="1"
+            />
+        <TextBlock
+            x:Name="obwod_txt"
+            Margin="20"
+            Grid.Column="1"
+            Grid.Row="2"/>
     </Grid>
 </Window>
