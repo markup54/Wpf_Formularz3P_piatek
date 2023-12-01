@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Formularz3P_piatek"
         mc:Ignorable="d"
-        Title="Obliczenia kwadratu" Height="450" Width="800">
+        Title="Obliczenia kwadratu" Height="550" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -39,7 +39,8 @@
         <TextBox
             Margin="20"
             Grid.Column="1"
-            x:Name="bok_txt"/>
+            x:Name="bok_txt"
+            Text="{Binding ElementName=sliderrrr, Path=Value, Mode=TwoWay}"/>
         <Label
             x:Name="pole_label"
             Margin="20"
@@ -51,5 +52,80 @@
             Margin="20"
             Grid.Column="1"
             Grid.Row="2"/>
+        <Slider
+    Minimum="20"
+    Maximum="200"
+    x:Name="sliderrrr"
+            Margin="20"
+    Grid.Row="3"
+    Grid.ColumnSpan="2"
+            Value="50"
+            ValueChanged="slider_ValueChanged"/>
+        <StackPanel Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    >
+            <Rectangle Width="{Binding ElementName=bok_txt, Path=Text}"
+                       Height="{Binding ElementName=bok_txt,
+                Path=Text}"
+                       Fill="Red"
+                       Margin="5"
+                       x:Name="kwadrat1"/>
+            <Rectangle Width="100"
+                       Height="100"
+                       Fill="Green"
+                       Margin="5"
+                       x:Name="kwadrat2"/>
+            <Rectangle Width="100"
+                       Height="100"
+                       Fill="{Binding ElementName=kolor,Path=Text}"
+                       Margin="5"
+                       x:Name="kwadrat3"/>
+            <ComboBox x:Name="kolor"
+                      Margin="20"
+                      SelectedIndex="1"
+                      >
+                <ComboBoxItem>Orange</ComboBoxItem>
+                <ComboBoxItem>Yellow</ComboBoxItem>
+                <ComboBoxItem>Black</ComboBoxItem>
+                <ComboBoxItem>Blue</ComboBoxItem>
+                <ComboBoxItem>Purple</ComboBoxItem>
+                <ComboBoxItem>Green</ComboBoxItem>
+            </ComboBox>
+            <Button 
+                Height="20"
+                Click="Button_Click">Oblicz</Button>
+            
+        </StackPanel>
+        <CheckBox
+            x:Name="przezroczysty"
+            Margin="20"
+            Checked="przezroczysty_Checked"
+            Unchecked="przezroczysty_Unchecked"
+            Grid.Row="5">
+            Czy przeźroczyty
+        </CheckBox>
+        <StackPanel
+            Grid.Row="6"
+            >
+            <RadioButton
+                x:Name="widoczny"
+                GroupName="widocznosc"
+                IsChecked="True"
+                Margin="5">
+                Widoczny
+            </RadioButton>
+            <RadioButton
+                x:Name="ukryty"
+                GroupName="widocznosc"
+                Margin="5">
+                Ukryty
+            </RadioButton>
+        </StackPanel>
+        <Button
+            Grid.Row="6"
+            Grid.Column="1"
+            Margin="30"
+            Content="Zmień" Click="Button_Click_1" />
     </Grid>
 </Window>
